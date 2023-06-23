@@ -9,6 +9,8 @@ packages = [{include = "openai_agent"}]
 [tool.poetry.dependencies]
 python = "^3.11"
 openai = "^0.27.8"
+pydantic = "^1.10.9"
+loguru = "^0.7.0"
 
 
 [build-system]
