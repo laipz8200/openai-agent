@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "openai-agent"
 version = "0.1.0"
-description = ""
+description = "Easy-to-use OpenAI Agent with support for the latest Function call feature."
 authors = ["-LAN- <laipz8200@outlook.com>"]
 readme = "README.md"
 packages = [{include = "openai_agent"}]
