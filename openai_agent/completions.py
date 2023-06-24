@@ -40,6 +40,7 @@ def get_function_completion(
     messages: list[Message],
     functions: list[Function],
 ) -> Message:
+    function_dict = {function.name: function for function in functions}
     response_message = get_completion(
         model=model, messages=messages, functions=functions
     )
@@ -50,9 +51,7 @@ def get_function_completion(
         except Exception as e:
             logger.error(f"failed to parse function args: {e}")
             raise e
-        for function in functions:
-            if function.name != function_name:
-                continue
+        if function := function_dict.get(function_name):
             function_returns = function(**function_args)
             messages += [
                 response_message,
@@ -61,4 +60,6 @@ def get_function_completion(
             response_message = get_completion(
                 model=model, messages=messages, functions=functions
             )
+        else:
+            raise Exception(f"function {function_name} not found")
     return response_message
