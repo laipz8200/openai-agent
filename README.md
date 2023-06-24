@@ -2,6 +2,10 @@
 
 Easy-to-use OpenAI Agent with support for the latest Function call feature.
 
+## Install
+
+`pip install openai-agent`
+
 ## Usage
 
 1. Create your own functions using comprehensive documentation comments and type annotations.
